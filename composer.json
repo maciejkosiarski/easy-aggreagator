@@ -1,6 +1,15 @@
 {
     "name" : "maciejkosiarski/easy-aggregator",
     "description" : "Simple lib to aggregate multidimensional arrays.",
+    "homepage": "https://github.com/maciejkosiarski/easy-aggreagator",
+    "authors" : [
+        {
+            "name": "Maciej Kosiarski"
+        }
+    ],
+    "license" : [
+        "MIT"
+    ],
     "autoload" : {
         "psr-4" : {
             "MaciejKosiarski\\EasyAggregator\\" : "src/"
