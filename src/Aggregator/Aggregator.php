@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MaciejKosiarski\EasyAggregator;
+namespace MaciejKosiarski\EasyAggregator\Aggregator;
 
-use MaciejKosiarski\EasyAggregator\Aggregator\Result;
+use MaciejKosiarski\EasyAggregator\Result;
 
 interface Aggregator
 {

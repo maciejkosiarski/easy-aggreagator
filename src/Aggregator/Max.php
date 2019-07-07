@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace MaciejKosiarski\EasyAggregator\Aggregator;
 
-use MaciejKosiarski\EasyAggregator\Aggregator;
+use MaciejKosiarski\EasyAggregator\Result;
 
 class Max implements Aggregator
 {

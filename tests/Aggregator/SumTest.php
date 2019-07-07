@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace MaciejKosiarski\EasyAggregator\Tests\Aggregator;
 
-use MaciejKosiarski\EasyAggregator\Aggregator\Result;
 use MaciejKosiarski\EasyAggregator\Aggregator\Sum;
+use MaciejKosiarski\EasyAggregator\Result;
 use PHPUnit\Framework\TestCase;
 
 class SumTest extends TestCase

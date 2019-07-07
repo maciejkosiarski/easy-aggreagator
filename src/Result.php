@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MaciejKosiarski\EasyAggregator\Aggregator;
+namespace MaciejKosiarski\EasyAggregator;
 
 
 class Result

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace MaciejKosiarski\EasyAggregator\Tests\Aggregator;
 
 use MaciejKosiarski\EasyAggregator\Aggregator\Last;
-use MaciejKosiarski\EasyAggregator\Aggregator\Result;
+use MaciejKosiarski\EasyAggregator\Result;
 use PHPUnit\Framework\TestCase;
 
 class LastTest extends TestCase

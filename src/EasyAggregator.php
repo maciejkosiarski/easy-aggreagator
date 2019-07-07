@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace MaciejKosiarski\EasyAggregator;
 
-use MaciejKosiarski\EasyAggregator\Aggregator\Result;
-
 class EasyAggregator
 {
     /**

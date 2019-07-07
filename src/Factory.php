@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MaciejKosiarski\EasyAggregator;
 
+use MaciejKosiarski\EasyAggregator\Aggregator\Aggregator;
 use MaciejKosiarski\EasyAggregator\Exception\UndefinedAggregatorException;
 
 class Factory

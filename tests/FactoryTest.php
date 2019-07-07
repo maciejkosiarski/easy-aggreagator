@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace MaciejKosiarski\EasyAggregator\Tests;
 
-use MaciejKosiarski\EasyAggregator\Aggregator;
+use MaciejKosiarski\EasyAggregator\Aggregator\Aggregator;
 use MaciejKosiarski\EasyAggregator\Exception\UndefinedAggregatorException;
 use MaciejKosiarski\EasyAggregator\Factory;
 use PHPUnit\Framework\TestCase;
