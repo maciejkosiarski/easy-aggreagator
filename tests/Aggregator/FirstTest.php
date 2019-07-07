@@ -36,9 +36,7 @@ class FirstTest extends TestCase
         $aggregator = new First();
         $result = $aggregator->aggregate($toAggregate);
 
-        $funcVal = Result::TYPES[$result->getType()];
-
-        $this->assertIsInt($funcVal($result->getValue()));
+        $this->assertEquals('null', $result->getType());
         $this->assertEquals('', $result->getValue());
     }
 

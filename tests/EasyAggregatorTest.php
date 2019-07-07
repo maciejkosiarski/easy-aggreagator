@@ -20,37 +20,49 @@ class EasyAggregatorTest extends TestCase
             'c' => '$max',
             'd' => '$first',
             'e' => '$last',
+            'f' => '$avg',
         ];
 
         $aggregator = new EasyAggregator();
         $aggregated = $aggregator->aggregate($conditions, $this->getTestData());
 
-        $this->assertEquals($this->getExpected(), $aggregated);
+        $this->assertSame($this->getExpected(), $aggregated);
     }
 
     private function getTestData(): array
     {
         return [
             [
-                'a' => 1,
-                'b' => 2,
+                'a' => 1.5,
+                'b' => '2',
                 'c' => 3,
                 'd' => 7,
                 'e' => 4,
+                'f' => 1,
             ],
             [
-                'a' => 3,
+                'a' => 3.5,
                 'b' => 3,
                 'c' => 1,
                 'd' => 5,
                 'e' => 4,
+                'f' => 1,
             ],
             [
-                'a' => 1,
-                'b' => 4,
+                'a' => null,
+                'b' => 3,
                 'c' => 2,
                 'd' => 6,
                 'e' => 5,
+                'f' => 1,
+            ],
+            [
+                'a' => '1',
+                'b' => 4,
+                'c' => 2,
+                'd' => 6,
+                'e' => null,
+                'f' => 1,
             ],
         ];
     }
@@ -58,11 +70,12 @@ class EasyAggregatorTest extends TestCase
     private function getExpected(): array
     {
         return [
-            'a' => 5,
-            'b' => 3,
+            'a' => 6.0,
+            'b' => 3.0,
             'c' => 3,
             'd' => 7,
-            'e' => 5,
+            'e' => null,
+            'f' => 1,
         ];
     }
 }

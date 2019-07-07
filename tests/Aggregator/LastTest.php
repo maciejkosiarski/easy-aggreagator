@@ -36,9 +36,7 @@ class LastTest extends TestCase
         $aggregator = new Last();
         $result = $aggregator->aggregate($toAggregate);
 
-        $funcVal = Result::TYPES[$result->getType()];
-
-        $this->assertIsInt($funcVal($result->getValue()));
+        $this->assertEquals('null', $result->getType());
         $this->assertEquals('', $result->getValue());
     }
 
