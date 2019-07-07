@@ -23,8 +23,12 @@ class EasyAggregator
 
             $result = $aggregator->aggregate($set);
 
-            $funcVal = Result::TYPES[$result->getType()];
+            if ($result->getType() === 'null') {
+                $aggregated[$key] = null;
+                continue;
+            }
 
+            $funcVal = Result::TYPES[$result->getType()];
             $aggregated[$key] = $funcVal($result->getValue());
         }
 

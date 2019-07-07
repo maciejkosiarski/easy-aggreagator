@@ -15,7 +15,7 @@ class First implements Aggregator
     {
         $result = current($toAggregate);
 
-        if (is_int($result) || is_null($result)) {
+        if (is_int($result)) {
             return new Result('int', (string)$result);
         }
 
@@ -29,6 +29,10 @@ class First implements Aggregator
 
         if (is_string($result)) {
             return new Result('string', (string)$result);
+        }
+
+        if (is_null($result)) {
+            return new Result('null', (string)$result);
         }
 
         throw new \Exception(sprintf('First aggregator return invalid value type[%s] %s',gettype($result), $result));

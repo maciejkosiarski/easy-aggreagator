@@ -15,7 +15,7 @@ class Last implements Aggregator
     {
         $result = end($toAggregate);
 
-        if (is_int($result) || is_null($result)) {
+        if (is_int($result)) {
             return new Result('int', (string)$result);
         }
 
@@ -31,6 +31,10 @@ class Last implements Aggregator
             return new Result('string', (string)$result);
         }
 
-        throw new \Exception(sprintf('Last aggregator return invalid value type[%s] %s',gettype($result), $result));
+        if (is_null($result)) {
+            return new Result('null', (string)$result);
+        }
+
+        throw new \Exception(sprintf('Last aggregator return invalid value type[%s] %s', gettype($result), $result));
     }
 }

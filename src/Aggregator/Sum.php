@@ -13,7 +13,15 @@ class Sum implements Aggregator
         $result = 0;
 
         foreach ($toAggregate as $element) {
-            $result += (float)$element;
+            if (!is_int($element) && !is_float($element) ) {
+                $element = (float)$element;
+            }
+
+            $result += $element;
+        }
+
+        if (is_int($result)) {
+            return new Result('int', (string)$result);
         }
 
         return new Result('float', (string)$result);
