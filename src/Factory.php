@@ -6,15 +6,18 @@ namespace MaciejKosiarski\EasyAggregator;
 
 use MaciejKosiarski\EasyAggregator\Aggregator\Aggregator;
 use MaciejKosiarski\EasyAggregator\Exception\UndefinedAggregatorException;
+use MaciejKosiarski\EasyAggregator\Exception\UndefinedManipulatorException;
+use MaciejKosiarski\EasyAggregator\Manipulator\Manipulator;
 
 class Factory
 {
     const AGGREGATES = ['$sum','$avg','$max','$first','$last'];
+    const MANIPULATORS = ['$round'];
 
     /**
      * @throws UndefinedAggregatorException
      */
-    public function create(string $aggregator): Aggregator
+    public function createAggregator(string $aggregator): Aggregator
     {
 
         $class = sprintf('%s\\Aggregator\\%s', __NAMESPACE__, $this->getName($aggregator));
@@ -26,8 +29,23 @@ class Factory
         throw new UndefinedAggregatorException($aggregator);
     }
 
-    private function getName(string $aggregator): string
+    /**
+     * @throws UndefinedManipulatorException
+     */
+    public function createManipulator(string $manipulator): Manipulator
     {
-        return ucfirst(str_replace('$', '', $aggregator));
+
+        $class = sprintf('%s\\Manipulator\\%s', __NAMESPACE__, $this->getName($manipulator));
+
+        if (class_exists($class)) {
+            return new $class();
+        }
+
+        throw new UndefinedManipulatorException($manipulator);
+    }
+
+    private function getName(string $name): string
+    {
+        return ucfirst(str_replace('$', '', $name));
     }
 }

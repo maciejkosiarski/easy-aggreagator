@@ -19,7 +19,7 @@ class FactoryTest extends TestCase
         $factory = new Factory();
 
         foreach (Factory::AGGREGATES as $aggregator) {
-            $a = $factory->create($aggregator);
+            $a = $factory->createAggregator($aggregator);
 
             $this->assertInstanceOf(Aggregator::class, $a);
         }
@@ -32,6 +32,6 @@ class FactoryTest extends TestCase
     {
         $this->expectException(UndefinedAggregatorException::class);
         $factory = new Factory();
-        $factory->create('$fakeAggregator');
+        $factory->createAggregator('$fakeAggregator');
     }
 }
