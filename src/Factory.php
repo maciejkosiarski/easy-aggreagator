@@ -12,7 +12,7 @@ use MaciejKosiarski\EasyAggregator\Manipulator\Manipulator;
 class Factory
 {
     const AGGREGATES = ['$sum','$avg','$max','$first','$last'];
-    const MANIPULATORS = ['$round'];
+    const MANIPULATORS = ['$round','$ucfirst'];
 
     /**
      * @throws UndefinedAggregatorException

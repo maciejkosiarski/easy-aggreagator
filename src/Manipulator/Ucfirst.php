@@ -7,20 +7,15 @@ namespace MaciejKosiarski\EasyAggregator\Manipulator;
 use MaciejKosiarski\EasyAggregator\Manipulator\Exception\InvalidTypeToManipulateException;
 use MaciejKosiarski\EasyAggregator\Result;
 
-class Round implements Manipulator
+class Ucfirst implements Manipulator
 {
     /**
-     * Rounds result to two decimal places.
      * @throws InvalidTypeToManipulateException
      */
     public function manipulate(Result $result): Result
     {
-        if ($result->getType() === 'float') {
-
-            $funcVal = Result::TYPES[$result->getType()];
-            $value = $funcVal($result->getValue());
-
-            return new Result('float', (string)round($value, 2));
+        if ($result->getType() === 'string') {
+            return new Result('string', ucfirst($result->getValue()));
         }
 
         throw new InvalidTypeToManipulateException($result->getType(), self::class);
