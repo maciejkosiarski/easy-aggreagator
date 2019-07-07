@@ -24,25 +24,25 @@ Simple example:
 
  $array = [
     [
-        'a' => 1,
-        'b' => 2,
+        'a' => 1.5,
+        'b' => 2.456,
         'c' => 3,
-        'd' => 7,
-        'e' => 4,
+        'd' => false,
+        'e' => 'peter',
     ],
     [
         'a' => 3,
-        'b' => 3,
+        'b' => 3.456,
         'c' => 1,
-        'd' => 5,
-        'e' => 4,
+        'd' => true,
+        'e' => 'john',
     ],
     [
         'a' => 1,
-        'b' => 4,
+        'b' => 4.4567,
         'c' => 2,
-        'd' => 6,
-        'e' => 5,
+        'd' => false,
+        'e' => 'mark',
     ],
 ];
  
@@ -54,8 +54,14 @@ Simple example:
      'e' => '$last',
  ];
  
+ //Are optional
+ $manipulators = [
+    'b' => '$round',
+    'e' => '$ucfirst',
+];
+ 
  $aggregator = new EasyAggregator();
- $aggregated = $aggregator->aggregate($conditions, $array);
+ $aggregated = $aggregator->aggregate($array, $conditions, $manipulators);
  
  dump($aggregated);
  
@@ -66,11 +72,11 @@ Simple example:
  ```php
  
  [
-     'a' => 5,
-     'b' => 3,
+     'a' => 5.5,
+     'b' => 3.46,
      'c' => 3,
-     'd' => 7,
-     'e' => 5,
+     'd' => false,
+     'e' => 'Mark',
  ];
  
  ```
